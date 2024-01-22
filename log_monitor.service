@@ -1,0 +1,13 @@
+[Unit]
+Description=Log Watcher
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/log_monitor.sh /etc/log_monitor/config.ini
+StandardError=inherit
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
